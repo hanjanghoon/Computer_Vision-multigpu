@@ -25,8 +25,8 @@ from tensorboardX import SummaryWriter
 parser = argparse.ArgumentParser(description='cifar10 classification models')
 parser.add_argument('--lr', default=0.1, help='')
 parser.add_argument('--resume', default=None, help='')
-parser.add_argument('--batch_size', type=int, default=768, help='')
-parser.add_argument('--num_workers', type=int, default=4, help='')
+parser.add_argument('--batch_size', type=int, default=128, help='')
+parser.add_argument('--num_workers', type=int, default=3, help='')
 parser.add_argument("--gpu_devices", type=int, nargs='+', default=None, help="")
 
 parser.add_argument('--gpu', default=None, type=int, help='GPU id to use.')
@@ -52,7 +52,7 @@ def main():
         
 def main_worker(gpu, ngpus_per_node, args):
     args.gpu = gpu
-    ngpus_per_node = torch.cuda.device_count()    
+    ngpus_per_node = torch.cuda.device_count()
     print("Use GPU: {} for training".format(args.gpu))
         
     args.rank = args.rank * ngpus_per_node + gpu    

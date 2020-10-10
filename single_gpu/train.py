@@ -17,11 +17,14 @@ from model import pyramidnet
 import argparse
 from tensorboardX import SummaryWriter
 
+#os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+
+
 
 parser = argparse.ArgumentParser(description='cifar10 classification models')
 parser.add_argument('--lr', default=0.1, help='')
 parser.add_argument('--resume', default=None, help='')
-parser.add_argument('--batch_size', type=int, default=512, help='')
+parser.add_argument('--batch_size', type=int, default=128, help='')
 parser.add_argument('--num_worker', type=int, default=4, help='')
 args = parser.parse_args()
 
